@@ -1,5 +1,6 @@
 #pragma once
 
+#include "consts.h"
 
 void menu(); 
 
@@ -16,11 +17,11 @@ typedef enum M_states
 typedef enum S_states
 {
 	S_end,
-	S_game,
-	S_settings
+	S_size = 9
 } S_states;
 
 typedef struct settings
 {
-	int a;
+	int masts[MASTS];
+	int size;		
 }settings;

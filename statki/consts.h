@@ -10,3 +10,4 @@
 #define three_masted_size 3
 #define two_masted_size 2
 #define one_masted_size 1
+#define MASTS 5 

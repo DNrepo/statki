@@ -6,6 +6,7 @@
 #include <windows.h>
 #include "bool.h"
 #include "menu.h"
+#include "consts.h"
 
 
 
@@ -14,32 +15,30 @@
 struct settings Settings(settings set)
 {
 
+
 	while (1)
 	{
 		system("cls");
 		printf("  Dominik Nowocien PK 2017/2018  \n");
 		printf("  statki  \n");
-		printf("  1 - tu  \n");
-		printf("  2 - jjakies  \n");
+		for (int i = 0; i < MASTS; i++)
+		printf("  %i - ilosc statkow %i-masztowych: %i \n",i+1,i+1,set.masts[i] );
+
+		printf("  9 -rozmiar planszy %ix%i  \n",set.size, set.size);
 		printf("  0 - wyjscie  \n");
 
 		int keyPressed = _getch();
 
-		switch (keyPressed - 48)
+		if ((keyPressed - 48) == M_end)
+			return set;
+
+		if ((keyPressed - 48) < MASTS)
 		{
-		case S_game: //gra
-		{
-			//gameStart(settings) ;
-			break;
-		}
-		case S_settings: //wyjscie
-		{
-			break;
-		}
-		case S_end: //wyjscie
-		{
-			return set ;
-		}
+			int i = (keyPressed - 48);
+			set.masts[i - 1]++;
+			if (set.masts[i - 1] > MASTS - i)
+				set.masts[i - 1] = 0;
+
 		}
 	}
 
@@ -56,7 +55,10 @@ void menu()
 
 	settings game_settings;
 
-	game_settings.a = 2;
+	for (int i = 0; i < MASTS; i++)
+		game_settings.masts[i] = MASTS - i;
+	game_settings.size = 10;
+
 	while(1)
 	{
 		system("cls");

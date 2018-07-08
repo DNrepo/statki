@@ -1,3 +1,3 @@
-﻿  print.cpp
-c:\users\dominik\desktop\pk sem 2\statki\statki\print.cpp(23): warning C4020: "read": zbyt wiele parametrów rzeczywistych
+﻿  menu.c
+c:\users\dominik\desktop\pk sem 2\statki\statki\menu.c(77): warning C4013: niezdefiniowany "gameStart"; przy założeniu, że extern zwraca int
   statki.vcxproj -> C:\Users\Dominik\Desktop\PK sem 2\statki\Debug\statki.exe

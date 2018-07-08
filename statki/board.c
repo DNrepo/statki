@@ -1,8 +1,7 @@
 
 #include "board.h"
 #include "consts.h"
-#include "bool.h"
-#include "listaPomocnicza.h" 
+#include "bool.h" 
 #include "print.h" 
 #include "possiblePostionOfShip.h" 
 
@@ -179,45 +178,13 @@ board_struct addShip(board_struct boardToReturn,int shipSize)
 
 
 
-board_struct addFourMastedShip(board_struct boardToReturn)
-{
-	int direction = (int)(rand() % 2);
-
-	int x, y;
-	if (direction < 1)//pionowo
-	{
-		x = (int)(rand() % (boardToReturn.size));
-		y = (int)(rand() % (boardToReturn.size - four_masted_size));
-		for (int i = 0; i < four_masted_size; i++)
-			boardToReturn.board[read(x, y + i, boardToReturn.size)] = busy;
-	}
-	else
-	{
-		x = (int)(rand() % (boardToReturn.size - four_masted_size));
-		y = (int)(rand() % (boardToReturn.size));
-
-		for (int i = 0; i < four_masted_size; i++)
-			boardToReturn.board[read(x + i, y, boardToReturn.size)] = busy;
-	}
-
-	return boardToReturn;
-}
-
- 
 
 
 
-
-board_struct newRandomBoard()
+board_struct newRandomBoard(int size )
 {
 
-	board_struct player_board1 = newBoard(BoardSize,empty);
-
-
-
-
-	player_board1 = addFourMastedShip(player_board1);
-
+	board_struct player_board1 = newBoard(size,empty);
 
 
 	player_board1 = addShip(player_board1, 4);
@@ -234,8 +201,6 @@ board_struct newRandomBoard()
 	player_board1 = addShip(player_board1, 1);
 
 	player_board1 = update(player_board1);
-
-	printBoard(player_board1);
 
 
 	return player_board1;

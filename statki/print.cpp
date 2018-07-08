@@ -7,37 +7,93 @@
 #include <conio.h>
 #include <windows.h>
 
-void printBoard(board_struct boardToPrint)
+void printBoard(board_struct shipsBoard, board_struct shootsBoard)
 {
 	system("cls");
 	printf("  Dominik Nowocien PK 2017/2018  \n");
 	printf("  statki  \n\n");
 
-	for (int i = 0; i < boardToPrint.size; i++)
+
+	printf("      0   1   2   3   4   5   6   7   8   9             0   1   2   3   4   5   6   7   8   9 ");
+	
+	printf("\n    -");
+	for (int i = 0; i < shipsBoard.size; i++)
+		printf("----");
+
+	printf("         -");
+	for (int i = 0; i < shipsBoard.size; i++)
+		printf("----");
+	printf("\n");
+
+	for (int i = 0; i < shipsBoard.size; i++)
 	{
 
 
-		printf("  |");
-		for (int j = 0; j < boardToPrint.size; j++)
+		printf("  ");
+		printf("%i",i);
+		printf(" |");
+
+		for (int j = 0; j < shipsBoard.size; j++)
 		{
-			int a = boardToPrint.board[read(i, j, boardToPrint.size)];
+			int a = shipsBoard.board[read(i, j, shipsBoard.size)];
 
 			if (a == empty)
 				printf("   |");
 			else  if (a == adjacent)
 				printf("   |");
-			else
+			else  if (a == busy)
 				printf(" # |");
+			else  if (a == unused)
+				printf("   |");
+			else  if (a == hit)
+				printf(" * |");
+			else  if (a == miss)
+				printf(" @ |");
+			else
+				printf("   |");
 
 		}
 
-		printf("\n  -");
-		for (int i = 0; i < boardToPrint.size; i++)
+
+		printf("       ");
+		printf("%i", i);
+		printf(" |");
+		for (int j = 0; j < shootsBoard.size; j++)
+		{
+			int a = shootsBoard.board[read(i, j, shootsBoard.size)];
+
+			if (a == empty)
+				printf("   |");
+			else  if (a == adjacent)
+				printf("   |");
+			else  if (a == busy)
+				printf(" # |");
+			else  if (a == unused)
+				printf("   |");
+			else  if (a == hit)
+				printf(" * |");
+			else  if (a == miss)
+				printf(" @ |");
+			else
+				printf("   |");
+
+		}
+
+		printf("\n    -");
+		for (int i = 0; i < shipsBoard.size; i++)
+			printf("----");
+
+		printf("         -");
+		for (int i = 0; i < shipsBoard.size; i++)
 			printf("----");
 		printf("\n");
 
 	}
 
-	Sleep(2000);
+	printf("\n\n");
+
+
+
+	//Sleep(1000);
 
 }

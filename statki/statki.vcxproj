@@ -130,7 +130,6 @@
     <ClInclude Include="bool.h" />
     <ClInclude Include="consts.h" />
     <ClInclude Include="game.h" />
-    <ClInclude Include="listaPomocnicza.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="possiblePostionOfShip.h" />
     <ClInclude Include="print.h" />
