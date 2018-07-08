@@ -26,7 +26,7 @@ typedef struct board_struct
 }board_struct;
 
 
-int read(int x, int y, int size);
+int coordinatesXYtoIndex(int x, int y, int size);
 
 board_struct newBoard( int boardSize,int wypelnienie); 
 board_struct newRandomBoard(settings game_settings);

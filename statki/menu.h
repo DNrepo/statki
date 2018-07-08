@@ -13,12 +13,7 @@ typedef enum M_states
 	M_settings
 } M_states;
 
-
-typedef enum S_states
-{
-	S_end,
-	S_size = 9
-} S_states;
+ 
 
 typedef struct settings
 {

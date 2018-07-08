@@ -30,7 +30,7 @@ void opponentMove(board_struct *opponentShootsBoard, board_struct *playerBoard)
 	{
 		index = rand() % ((*opponentShootsBoard).size*(*opponentShootsBoard).size);
 
-	} while ( (*opponentShootsBoard).board[index] != unused);
+	} while ((*opponentShootsBoard).board[index] != unused);
 
 	if ((*playerBoard).board[index] == busy)
 	{
@@ -38,13 +38,16 @@ void opponentMove(board_struct *opponentShootsBoard, board_struct *playerBoard)
 		(*playerBoard).board[index] = hit;
 	}
 	else
+	{
 		(*opponentShootsBoard).board[index] = miss;
-
+		(*playerBoard).board[index] = miss;
+	}
 }
 
 void playerMove(board_struct *playerShootsBoard, board_struct *opponentShipsBoard)
 {
-	int x,y,index;
+	int x, y, index;
+
 
 
 	do
@@ -54,15 +57,15 @@ void playerMove(board_struct *playerShootsBoard, board_struct *opponentShipsBoar
 		{
 			printf("  Wprowadz numer wiersza\n  ");
 			scanf("%d", &x);
-		} while (!((x < 10) && (x >= 0)));
+		} while (!((x < maxNumber) && (x >= minNumber)));
 
 		do
 		{
 			printf("  Wprowadz numer kolumny\n  ");
 			scanf("%d", &y);
-		} while (!((y < 10) && (y >= 0)));
+		} while (!((y < maxNumber) && (y >= minNumber)));
 
-		index = read(x, y, playerShootsBoard->size);
+		index = coordinatesXYtoIndex(x, y, playerShootsBoard->size);
 
 	} while (playerShootsBoard->board[index] != unused);
 
@@ -73,7 +76,10 @@ void playerMove(board_struct *playerShootsBoard, board_struct *opponentShipsBoar
 	}
 
 	else
+	{
 		playerShootsBoard->board[index] = miss;
+		opponentShipsBoard->board[index] = miss;
+	}
 
 }
 
@@ -88,8 +94,9 @@ void gameStart(settings game_settings)
 
 	board_struct opponentShipsBoard = newRandomBoard(game_settings);
 	board_struct opponentShootsBoard = newBoard(game_settings.size, unused);
-
-
+	 
+	printBoard(playerShipsBoard, playerShootsBoard);
+	 
 	int a = 0; 
 	while (1)
 	{
@@ -107,7 +114,7 @@ void gameStart(settings game_settings)
 		if (checkIfWin(opponentShipsBoard))
 			//opponent win;
 		{
-			a = 2;
+			a = 0;
 			break;
 		}
 

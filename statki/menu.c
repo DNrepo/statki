@@ -8,9 +8,7 @@
 #include "menu.h"
 #include "consts.h"
 
-
-
-
+ 
 
 struct settings Settings(settings set)
 {
@@ -40,13 +38,11 @@ struct settings Settings(settings set)
 
 		}
 	}
-
 	 
 return set ;
 
 
 }
-
  
 
 void menu()

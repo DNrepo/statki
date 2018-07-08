@@ -2,4 +2,4 @@
 
 #include "board.h"
 
-void printBoard(board_struct boardToPrint);
+void printBoard(board_struct shipsBoard, board_struct shootsBoard);

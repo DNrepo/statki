@@ -35,7 +35,7 @@ void printBoard(board_struct shipsBoard, board_struct shootsBoard)
 
 		for (int j = 0; j < shipsBoard.size; j++)
 		{
-			int a = shipsBoard.board[read(i, j, shipsBoard.size)];
+			int a = shipsBoard.board[coordinatesXYtoIndex(i, j, shipsBoard.size)];
 
 			if (a == empty)
 				printf("   |");
@@ -60,7 +60,7 @@ void printBoard(board_struct shipsBoard, board_struct shootsBoard)
 		printf(" |");
 		for (int j = 0; j < shootsBoard.size; j++)
 		{
-			int a = shootsBoard.board[read(i, j, shootsBoard.size)];
+			int a = shootsBoard.board[coordinatesXYtoIndex(i, j, shootsBoard.size)];
 
 			if (a == empty)
 				printf("   |");
@@ -92,8 +92,5 @@ void printBoard(board_struct shipsBoard, board_struct shootsBoard)
 
 	printf("\n\n");
 
-
-
-	//Sleep(1000);
 
 }
