@@ -24,7 +24,7 @@ void gameStart(settings game_settings)
 		board_struct oponent_board1 = newRandomBoard();
 
 
-		printBoard(oponent_board1);
+		//printBoard(oponent_board1);
 		
 
 

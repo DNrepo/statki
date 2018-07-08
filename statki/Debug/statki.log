@@ -1,5 +1,3 @@
 ﻿  print.cpp
-c:\users\dominik\desktop\pk sem 2\statki\statki\print.cpp(7): warning C4013: niezdefiniowany "system"; przy założeniu, że extern zwraca int
-c:\users\dominik\desktop\pk sem 2\statki\statki\print.cpp(8): warning C4013: niezdefiniowany "printf"; przy założeniu, że extern zwraca int
-c:\users\dominik\desktop\pk sem 2\statki\statki\print.cpp(18): warning C4020: "read": zbyt wiele parametrów rzeczywistych
+c:\users\dominik\desktop\pk sem 2\statki\statki\print.cpp(23): warning C4020: "read": zbyt wiele parametrów rzeczywistych
   statki.vcxproj -> C:\Users\Dominik\Desktop\PK sem 2\statki\Debug\statki.exe

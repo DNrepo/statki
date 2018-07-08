@@ -132,6 +132,7 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="listaPomocnicza.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="possiblePostionOfShip.h" />
     <ClInclude Include="print.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

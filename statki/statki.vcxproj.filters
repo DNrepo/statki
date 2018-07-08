@@ -53,5 +53,8 @@
     <ClInclude Include="listaPomocnicza.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="possiblePostionOfShip.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
