@@ -5,6 +5,8 @@
 #include "print.h" 
 #include "possiblePostionOfShip.h" 
 
+#include "menu.h"
+
 int read(int x, int y, int size)
 {
 	return x * size + y ;
@@ -181,27 +183,20 @@ board_struct addShip(board_struct boardToReturn,int shipSize)
 
 
 
-board_struct newRandomBoard(int size )
+board_struct newRandomBoard(settings game_settings)
 {
 
-	board_struct player_board1 = newBoard(size,empty);
+	board_struct player_board1 = newBoard(game_settings.size,empty);
 
 
-	player_board1 = addShip(player_board1, 4);
-	player_board1 = addShip(player_board1, 3);
-	player_board1 = addShip(player_board1, 3);
+	for (int i = 0; i < MASTS; i++)
+	{
+		for (int j = 0; j < game_settings.masts[i]; j++)
+			player_board1 = addShip(player_board1, i+1);
+	}
 
-	player_board1 = addShip(player_board1, 2);
-	player_board1 = addShip(player_board1, 2);
-	player_board1 = addShip(player_board1, 2);
-
-	player_board1 = addShip(player_board1, 1);
-	player_board1 = addShip(player_board1, 1);
-	player_board1 = addShip(player_board1, 1);
-	player_board1 = addShip(player_board1, 1);
 
 	player_board1 = update(player_board1);
-
 
 	return player_board1;
 

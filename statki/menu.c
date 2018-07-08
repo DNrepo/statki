@@ -24,7 +24,6 @@ struct settings Settings(settings set)
 		for (int i = 0; i < MASTS; i++)
 		printf("  %i - ilosc statkow %i-masztowych: %i \n",i+1,i+1,set.masts[i] );
 
-		printf("  9 -rozmiar planszy %ix%i  \n",set.size, set.size);
 		printf("  0 - wyjscie  \n");
 
 		int keyPressed = _getch();
@@ -32,11 +31,11 @@ struct settings Settings(settings set)
 		if ((keyPressed - 48) == M_end)
 			return set;
 
-		if ((keyPressed - 48) < MASTS)
+		if ((keyPressed - 48) < MASTS+1)
 		{
 			int i = (keyPressed - 48);
 			set.masts[i - 1]++;
-			if (set.masts[i - 1] > MASTS - i)
+			if (set.masts[i - 1] > MASTS -i +2)
 				set.masts[i - 1] = 0;
 
 		}

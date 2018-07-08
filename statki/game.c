@@ -50,12 +50,18 @@ void playerMove(board_struct *playerShootsBoard, board_struct *opponentShipsBoar
 	do
 	{
 
-		printf("  Wprowadz numer wiersza\n  ");
-		scanf("%d", &x);
+		do
+		{
+			printf("  Wprowadz numer wiersza\n  ");
+			scanf("%d", &x);
+		} while (!((x < 10) && (x >= 0)));
 
+		do
+		{
+			printf("  Wprowadz numer kolumny\n  ");
+			scanf("%d", &y);
+		} while (!((y < 10) && (y >= 0)));
 
-		printf("  Wprowadz numer kolumny\n  ");
-		scanf("%d", &y);
 		index = read(x, y, playerShootsBoard->size);
 
 	} while (playerShootsBoard->board[index] != unused);
@@ -76,12 +82,12 @@ void gameStart(settings game_settings)
 {
 
 
-	board_struct playerShipsBoard = newRandomBoard(BoardSize);
-	board_struct playerShootsBoard = newBoard(BoardSize, unused);
+	board_struct playerShipsBoard = newRandomBoard(game_settings);
+	board_struct playerShootsBoard = newBoard(game_settings.size, unused);
 
 
-	board_struct opponentShipsBoard = newRandomBoard(BoardSize);
-	board_struct opponentShootsBoard = newBoard(BoardSize, unused);
+	board_struct opponentShipsBoard = newRandomBoard(game_settings);
+	board_struct opponentShootsBoard = newBoard(game_settings.size, unused);
 
 
 	int a = 0; 
@@ -97,9 +103,7 @@ void gameStart(settings game_settings)
 			break;
 		}
 
-		printBoard(playerShipsBoard, opponentShootsBoard);
-
-		//playerMove(&playerShootsBoard, &opponentShipsBoard );		
+		playerMove(&playerShootsBoard, &opponentShipsBoard );		
 		if (checkIfWin(opponentShipsBoard))
 			//opponent win;
 		{
@@ -107,8 +111,7 @@ void gameStart(settings game_settings)
 			break;
 		}
 
-		//printBoard(playerShipsBoard, playerShootsBoard);
-		//printBoard(playerShipsBoard, opponentShipsBoard);
+		printBoard(playerShipsBoard, playerShootsBoard);
 		 
 	} 
 

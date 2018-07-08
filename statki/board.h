@@ -2,6 +2,8 @@
 
 #include "consts.h"
 
+#include "menu.h"
+
 typedef enum field
 {
 	empty,
@@ -26,5 +28,5 @@ typedef struct board_struct
 
 int read(int x, int y, int size);
 
-board_struct newBoard( int boardSize,int wypelnienie);
-board_struct newRandomBoard(int size); 
+board_struct newBoard( int boardSize,int wypelnienie); 
+board_struct newRandomBoard(settings game_settings);
